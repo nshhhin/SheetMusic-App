@@ -81,7 +81,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             case 0:
                 return chordArray.count
             case 1:
-                let row0 = chordPicker.selectedRow(inComponent: 0)
+                let row0 = pickerView.selectedRow(inComponent: 0)
                 return chordArray[row0].count
             default:
                 return 0
@@ -95,7 +95,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         case 0:
             return initialChordArray[row]
         case 1:
-            let row0: Int = chordPicker.selectedRow(inComponent: 0)
+            let row0: Int = pickerView.selectedRow(inComponent: 0)
             return chordArray[row0][row]
         default:
             return nil
@@ -106,15 +106,17 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
         case 0:
+            // 重要: 左のぴっかーが変えられたら右は0番目にしなくてはならない!!
+            chordPicker.selectRow(0, inComponent: 1, animated: false)
             let row1: Int = chordPicker.selectedRow(inComponent: 1)
             let selectedChord = chordArray[row][row1]
-            let image = UIImage(named: selectedChord + ".png")
+            let image = UIImage(named: selectedChord)
             chordPicker.reloadComponent(1)
             chordFigure.image = image
         case 1:
             let row0: Int = chordPicker.selectedRow(inComponent: 0)
             let selectedChord = chordArray[row0][row]
-            let image = UIImage(named: selectedChord + ".png")
+            let image = UIImage(named: selectedChord)
             chordFigure.image = image
         default:
 
@@ -133,17 +135,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let row0: Int = chordPicker.selectedRow(inComponent: 0)
-        let row1: Int = chordPicker.selectedRow(inComponent: 1)
-        let chord = chordArray[row0][row1]
-
-
 
         switch indexPath.row % 2 {
             case 0:
                 let cell = tableView.dequeueReusableCell(with: ChordCell.self, for: indexPath) as ChordCell
-//                cell.setChord(chord)
-                cell.setLayout(40)
+                cell.setLayout(70)
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(with: LyricCell.self, for: indexPath) as LyricCell
@@ -154,6 +150,22 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
         let cell = tableView.dequeueReusableCell(with: LyricCell.self, for: indexPath) as LyricCell
         return cell
+    }
+
+    // FIXME: 押されたて判定がない.....なぜ....
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+
+        print( "\(indexPath.row)のテーブルがタップされた")
+        let row0: Int = chordPicker.selectedRow(inComponent: 0)
+        let row1: Int = chordPicker.selectedRow(inComponent: 1)
+        let selectedChord = chordArray[row0][row1]
+
+        let cell = tableView.dequeueReusableCell(with: ChordCell.self, for: indexPath) as ChordCell
+        cell.setChord(selectedChord)
+
+        lacTableView.reloadData()
+
+        return indexPath
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

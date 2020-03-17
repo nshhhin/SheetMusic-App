@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // ギターのコードリストの読み込み
-        // chordDictに代入される
+        // TODO: 変数名がやばすぎるのでいつか直す
         guard let path = Bundle.main.path(forResource:"コード一覧", ofType:"csv") else { return false }
 
         do {
@@ -26,11 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // コードが行数にわかれて配列になった
             let lineStringList: [String] = csvString.components(separatedBy: .newlines)
 
-
-
             for lineString in lineStringList {
                 let chords: [String] = lineString.components(separatedBy: ", ")
-                chordArray.append(chords)
+                var chordSequence: [String] = []
+                for chord in chords {
+                    chordSequence.append(chord.components(separatedBy: ".png")[0])
+                }
+                chordArray.append(chordSequence)
             }
             print(chordArray)
         } catch let error as NSError {

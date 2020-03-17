@@ -6,12 +6,27 @@ class ChordCell: UITableViewCell {
 
     let numOfRow = 4
 
+    var chords: [String] = []
+
+    var selectedChord: String = "None"
+
     @IBOutlet weak var chordCollectionV: UICollectionView! {
         didSet {
             chordCollectionV.delegate = self
             chordCollectionV.dataSource = self
             chordCollectionV.register(cellType: ChordFigureCell.self)
         }
+    }
+
+    override func awakeFromNib() {
+        for i in 0..<numOfRow {
+            chords.append("None")
+        }
+    }
+
+    func setChord(_ chord: String){
+        selectedChord = chord
+        chordCollectionV.reloadData()
     }
 
     func setLayout(_ height: CGFloat){
@@ -34,9 +49,6 @@ class ChordCell: UITableViewCell {
         chordCollectionV.setCollectionViewLayout(layout, animated: false)
     }
 
-    func setChord(_ chord: String){
-        
-    }
 }
 
 extension ChordCell: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -47,15 +59,20 @@ extension ChordCell: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print( indexPath.row, "タップされた" )
-        let cell = collectionView.dequeueReusableCell(with: ChordFigureCell.self, for: indexPath) as! ChordFigureCell
-        cell.contentView.backgroundColor = .red
-        cell.backgroundColor = .red
-        cell.chordImageV.backgroundColor = .red
+        chords[indexPath.row] = selectedChord
+        chordCollectionV.reloadData()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(with: ChordFigureCell.self, for: indexPath)
-        return cell
+        if chords[indexPath.row] != "None" {
+            let cell = collectionView.dequeueReusableCell(with: ChordFigureCell.self, for: indexPath) as! ChordFigureCell
+            cell.chordImageV.image = UIImage(named: chords[indexPath.row])
+            return cell
+        }
+
+       let cell = collectionView.dequeueReusableCell(with: ChordFigureCell.self, for: indexPath) as! ChordFigureCell
+       cell.chordImageV.image = nil
+       return cell
     }
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
