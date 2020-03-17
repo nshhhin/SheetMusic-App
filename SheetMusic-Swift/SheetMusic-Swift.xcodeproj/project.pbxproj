@@ -17,6 +17,11 @@
 		F3EEBA8124201B8D005CC03F /* LyricCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3EEBA8024201B8D005CC03F /* LyricCell.xib */; };
 		F3EEBA8324201D71005CC03F /* ChordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3EEBA8224201D71005CC03F /* ChordCell.xib */; };
 		F3EEBE98242032D8005CC03F /* コード一覧.csv in Resources */ = {isa = PBXBuildFile; fileRef = F3EEBE97242032D8005CC03F /* コード一覧.csv */; };
+		F3EEBE9A24206911005CC03F /* ChordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EEBE9924206911005CC03F /* ChordCell.swift */; };
+		F3EEBE9C2420699A005CC03F /* LyricCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EEBE9B2420699A005CC03F /* LyricCell.swift */; };
+		F3EEBEA024206EE4005CC03F /* NSObject+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EEBE9F24206EE4005CC03F /* NSObject+Ex.swift */; };
+		F3EEBEA424206F28005CC03F /* UITable+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EEBEA224206F28005CC03F /* UITable+Ex.swift */; };
+		F3EEBEA524206F28005CC03F /* UICollection+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EEBEA324206F28005CC03F /* UICollection+Ex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		F3EEBA8024201B8D005CC03F /* LyricCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LyricCell.xib; sourceTree = "<group>"; };
 		F3EEBA8224201D71005CC03F /* ChordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChordCell.xib; sourceTree = "<group>"; };
 		F3EEBE97242032D8005CC03F /* コード一覧.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "コード一覧.csv"; sourceTree = "<group>"; };
+		F3EEBE9924206911005CC03F /* ChordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCell.swift; sourceTree = "<group>"; };
+		F3EEBE9B2420699A005CC03F /* LyricCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricCell.swift; sourceTree = "<group>"; };
+		F3EEBE9F24206EE4005CC03F /* NSObject+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Ex.swift"; sourceTree = "<group>"; };
+		F3EEBEA224206F28005CC03F /* UITable+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITable+Ex.swift"; sourceTree = "<group>"; };
+		F3EEBEA324206F28005CC03F /* UICollection+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollection+Ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,14 +74,13 @@
 		F38B7B7B23D2C0AD00136FDB /* SheetMusic-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				F3EEBEA124206F15005CC03F /* Extension */,
+				F3EEBEA624206FE6005CC03F /* View */,
 				F3EEBE96242032BD005CC03F /* Resource */,
 				F38B7B7C23D2C0AD00136FDB /* AppDelegate.swift */,
 				F38B7B7E23D2C0AD00136FDB /* SceneDelegate.swift */,
 				F38B7B8023D2C0AD00136FDB /* ViewController.swift */,
-				F3EEBA8024201B8D005CC03F /* LyricCell.xib */,
-				F3EEBA8224201D71005CC03F /* ChordCell.xib */,
 				F38B7B8223D2C0AD00136FDB /* Main.storyboard */,
-				F38B7B8823D2C0B000136FDB /* Assets.xcassets */,
 				F38B7B8A23D2C0B000136FDB /* LaunchScreen.storyboard */,
 				F38B7B8D23D2C0B000136FDB /* Info.plist */,
 				F38B7B8523D2C0AD00136FDB /* SheetMusic_Swift.xcdatamodeld */,
@@ -82,9 +91,31 @@
 		F3EEBE96242032BD005CC03F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				F38B7B8823D2C0B000136FDB /* Assets.xcassets */,
 				F3EEBE97242032D8005CC03F /* コード一覧.csv */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		F3EEBEA124206F15005CC03F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F3EEBEA224206F28005CC03F /* UITable+Ex.swift */,
+				F3EEBEA324206F28005CC03F /* UICollection+Ex.swift */,
+				F3EEBE9F24206EE4005CC03F /* NSObject+Ex.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F3EEBEA624206FE6005CC03F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3EEBA8024201B8D005CC03F /* LyricCell.xib */,
+				F3EEBE9B2420699A005CC03F /* LyricCell.swift */,
+				F3EEBA8224201D71005CC03F /* ChordCell.xib */,
+				F3EEBE9924206911005CC03F /* ChordCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,9 +193,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F38B7B8123D2C0AD00136FDB /* ViewController.swift in Sources */,
+				F3EEBEA424206F28005CC03F /* UITable+Ex.swift in Sources */,
 				F38B7B7D23D2C0AD00136FDB /* AppDelegate.swift in Sources */,
 				F38B7B7F23D2C0AD00136FDB /* SceneDelegate.swift in Sources */,
+				F3EEBEA524206F28005CC03F /* UICollection+Ex.swift in Sources */,
+				F3EEBEA024206EE4005CC03F /* NSObject+Ex.swift in Sources */,
+				F3EEBE9A24206911005CC03F /* ChordCell.swift in Sources */,
 				F38B7B8723D2C0AD00136FDB /* SheetMusic_Swift.xcdatamodeld in Sources */,
+				F3EEBE9C2420699A005CC03F /* LyricCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

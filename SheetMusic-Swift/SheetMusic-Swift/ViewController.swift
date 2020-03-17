@@ -25,10 +25,25 @@ class ViewController: UIViewController {
         }
     }
 
+    // lyric and chord table
+    @IBOutlet weak var lacTableView: UITableView! {
+        didSet {
+            lacTableView.delegate = self
+            lacTableView.dataSource = self
+
+            // 歌詞セルとコードセルの2つにカスタムセルを登録する
+            lacTableView.register(cellType: LyricCell.self)
+            lacTableView.register(cellType: ChordCell.self)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         chordArray = appDelegate.chordArray
+    }
+
+    @IBAction func addBtnTapped(_ sender: Any) {
+        
     }
 
 }
@@ -68,9 +83,6 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-
-        print("更新したよ")
-
         switch component {
         case 0:
             let row1: Int = chordPicker.selectedRow(inComponent: 1)
@@ -87,11 +99,32 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
             break
         }
-
-
     }
 
 
 }
 
+extension UIViewController: UITableViewDelegate, UITableViewDataSource {
 
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 50
+    }
+
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        var cell: UITableViewCell?
+
+        switch indexPath.row % 2 {
+            case 0:
+                cell = tableView.dequeueReusableCell(with: ChordCell.self, for: indexPath)
+            case 1:
+                cell = tableView.dequeueReusableCell(with: LyricCell.self, for: indexPath)
+            default:
+                break
+        }
+
+        return cell!
+    }
+
+
+}

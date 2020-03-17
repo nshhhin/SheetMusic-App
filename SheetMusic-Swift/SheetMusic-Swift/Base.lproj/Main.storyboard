@@ -73,6 +73,9 @@
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="コードを挿入"/>
+                                <connections>
+                                    <action selector="addBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VN6-Df-54W"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J6E-3S-8Ay">
                                 <rect key="frame" x="0.0" y="44" width="414" height="100"/>
@@ -189,6 +192,7 @@
                     <connections>
                         <outlet property="chordFigure" destination="P7v-EF-3Xm" id="hwy-6g-ElI"/>
                         <outlet property="chordPicker" destination="h0l-y3-Q1I" id="Gt4-Zs-ULf"/>
+                        <outlet property="lacTableView" destination="ge6-V1-Hzi" id="Xri-fi-uD9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
