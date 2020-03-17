@@ -22,6 +22,8 @@
 		F3EEBEA024206EE4005CC03F /* NSObject+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EEBE9F24206EE4005CC03F /* NSObject+Ex.swift */; };
 		F3EEBEA424206F28005CC03F /* UITable+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EEBEA224206F28005CC03F /* UITable+Ex.swift */; };
 		F3EEBEA524206F28005CC03F /* UICollection+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EEBEA324206F28005CC03F /* UICollection+Ex.swift */; };
+		F3EEBEA824207559005CC03F /* ChordFigureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EEBEA724207559005CC03F /* ChordFigureCell.swift */; };
+		F3EEBEAA2420756A005CC03F /* ChordFigureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3EEBEA92420756A005CC03F /* ChordFigureCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		F3EEBE9F24206EE4005CC03F /* NSObject+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Ex.swift"; sourceTree = "<group>"; };
 		F3EEBEA224206F28005CC03F /* UITable+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITable+Ex.swift"; sourceTree = "<group>"; };
 		F3EEBEA324206F28005CC03F /* UICollection+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollection+Ex.swift"; sourceTree = "<group>"; };
+		F3EEBEA724207559005CC03F /* ChordFigureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordFigureCell.swift; sourceTree = "<group>"; };
+		F3EEBEA92420756A005CC03F /* ChordFigureCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChordFigureCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 				F3EEBE9B2420699A005CC03F /* LyricCell.swift */,
 				F3EEBA8224201D71005CC03F /* ChordCell.xib */,
 				F3EEBE9924206911005CC03F /* ChordCell.swift */,
+				F3EEBEA92420756A005CC03F /* ChordFigureCell.xib */,
+				F3EEBEA724207559005CC03F /* ChordFigureCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +187,7 @@
 				F3EEBA8124201B8D005CC03F /* LyricCell.xib in Resources */,
 				F38B7B8923D2C0B000136FDB /* Assets.xcassets in Resources */,
 				F38B7B8423D2C0AD00136FDB /* Main.storyboard in Resources */,
+				F3EEBEAA2420756A005CC03F /* ChordFigureCell.xib in Resources */,
 				F3EEBA8324201D71005CC03F /* ChordCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +201,7 @@
 			files = (
 				F38B7B8123D2C0AD00136FDB /* ViewController.swift in Sources */,
 				F3EEBEA424206F28005CC03F /* UITable+Ex.swift in Sources */,
+				F3EEBEA824207559005CC03F /* ChordFigureCell.swift in Sources */,
 				F38B7B7D23D2C0AD00136FDB /* AppDelegate.swift in Sources */,
 				F38B7B7F23D2C0AD00136FDB /* SceneDelegate.swift in Sources */,
 				F3EEBEA524206F28005CC03F /* UICollection+Ex.swift in Sources */,

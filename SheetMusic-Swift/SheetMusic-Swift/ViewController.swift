@@ -12,6 +12,26 @@ class ViewController: UIViewController {
 
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
+    @IBOutlet weak var titleField: UITextField! {
+        didSet {
+            titleField.delegate  = self
+            titleField.attributedPlaceholder = NSAttributedString(
+                string: "曲名を入力してください",
+                attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray]
+            )
+        }
+    }
+
+    @IBOutlet weak var artistField: UITextField! {
+        didSet {
+            artistField.delegate = self
+            artistField.attributedPlaceholder = NSAttributedString(
+                string: "アーティスト名を入力してください",
+                attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray]
+            )
+        }
+    }
+
     var initialChordArray = ["A", "B", "C", "D", "E", "F", "G"]
 
     var chordArray: [[String]] = []
@@ -41,6 +61,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         chordArray = appDelegate.chordArray
     }
+
 
     @IBAction func addBtnTapped(_ sender: Any) {
         
@@ -104,27 +125,50 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
 }
 
-extension UIViewController: UITableViewDelegate, UITableViewDataSource {
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        return 30
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        var cell: UITableViewCell?
+        let row0: Int = chordPicker.selectedRow(inComponent: 0)
+        let row1: Int = chordPicker.selectedRow(inComponent: 1)
+        let chord = chordArray[row0][row1]
+
+
 
         switch indexPath.row % 2 {
             case 0:
-                cell = tableView.dequeueReusableCell(with: ChordCell.self, for: indexPath)
+                let cell = tableView.dequeueReusableCell(with: ChordCell.self, for: indexPath) as ChordCell
+//                cell.setChord(chord)
+                cell.setLayout(40)
+                return cell
             case 1:
-                cell = tableView.dequeueReusableCell(with: LyricCell.self, for: indexPath)
+                let cell = tableView.dequeueReusableCell(with: LyricCell.self, for: indexPath) as LyricCell
+                return cell
             default:
                 break
         }
 
-        return cell!
+        let cell = tableView.dequeueReusableCell(with: LyricCell.self, for: indexPath) as LyricCell
+        return cell
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row % 2 == 0 {
+            return 70
+        }
 
+        return 30
+    }
+
+}
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
