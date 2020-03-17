@@ -12,10 +12,32 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var chordArray: [[String]] = []
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        // ギターのコードリストの読み込み
+        // chordDictに代入される
+        guard let path = Bundle.main.path(forResource:"コード一覧", ofType:"csv") else { return false }
+
+        do {
+            let csvString = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+
+            // コードが行数にわかれて配列になった
+            let lineStringList: [String] = csvString.components(separatedBy: .newlines)
+
+
+
+            for lineString in lineStringList {
+                let chords: [String] = lineString.components(separatedBy: ", ")
+                chordArray.append(chords)
+            }
+            print(chordArray)
+        } catch let error as NSError {
+            print("エラー: \(error)")
+            return false
+        }
+
         return true
     }
 

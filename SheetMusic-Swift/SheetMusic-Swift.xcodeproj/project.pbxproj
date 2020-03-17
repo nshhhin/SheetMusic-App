@@ -14,6 +14,9 @@
 		F38B7B8723D2C0AD00136FDB /* SheetMusic_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F38B7B8523D2C0AD00136FDB /* SheetMusic_Swift.xcdatamodeld */; };
 		F38B7B8923D2C0B000136FDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F38B7B8823D2C0B000136FDB /* Assets.xcassets */; };
 		F38B7B8C23D2C0B000136FDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38B7B8A23D2C0B000136FDB /* LaunchScreen.storyboard */; };
+		F3EEBA8124201B8D005CC03F /* LyricCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3EEBA8024201B8D005CC03F /* LyricCell.xib */; };
+		F3EEBA8324201D71005CC03F /* ChordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3EEBA8224201D71005CC03F /* ChordCell.xib */; };
+		F3EEBE98242032D8005CC03F /* コード一覧.csv in Resources */ = {isa = PBXBuildFile; fileRef = F3EEBE97242032D8005CC03F /* コード一覧.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		F38B7B8823D2C0B000136FDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F38B7B8B23D2C0B000136FDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F38B7B8D23D2C0B000136FDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3EEBA8024201B8D005CC03F /* LyricCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LyricCell.xib; sourceTree = "<group>"; };
+		F3EEBA8224201D71005CC03F /* ChordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChordCell.xib; sourceTree = "<group>"; };
+		F3EEBE97242032D8005CC03F /* コード一覧.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "コード一覧.csv"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +64,12 @@
 		F38B7B7B23D2C0AD00136FDB /* SheetMusic-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				F3EEBE96242032BD005CC03F /* Resource */,
 				F38B7B7C23D2C0AD00136FDB /* AppDelegate.swift */,
 				F38B7B7E23D2C0AD00136FDB /* SceneDelegate.swift */,
 				F38B7B8023D2C0AD00136FDB /* ViewController.swift */,
+				F3EEBA8024201B8D005CC03F /* LyricCell.xib */,
+				F3EEBA8224201D71005CC03F /* ChordCell.xib */,
 				F38B7B8223D2C0AD00136FDB /* Main.storyboard */,
 				F38B7B8823D2C0B000136FDB /* Assets.xcassets */,
 				F38B7B8A23D2C0B000136FDB /* LaunchScreen.storyboard */,
@@ -68,6 +77,14 @@
 				F38B7B8523D2C0AD00136FDB /* SheetMusic_Swift.xcdatamodeld */,
 			);
 			path = "SheetMusic-Swift";
+			sourceTree = "<group>";
+		};
+		F3EEBE96242032BD005CC03F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F3EEBE97242032D8005CC03F /* コード一覧.csv */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,8 +146,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F38B7B8C23D2C0B000136FDB /* LaunchScreen.storyboard in Resources */,
+				F3EEBE98242032D8005CC03F /* コード一覧.csv in Resources */,
+				F3EEBA8124201B8D005CC03F /* LyricCell.xib in Resources */,
 				F38B7B8923D2C0B000136FDB /* Assets.xcassets in Resources */,
 				F38B7B8423D2C0AD00136FDB /* Main.storyboard in Resources */,
+				F3EEBA8324201D71005CC03F /* ChordCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
