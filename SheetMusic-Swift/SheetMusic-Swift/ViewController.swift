@@ -36,6 +36,8 @@ class ViewController: UIViewController {
 
     var chordArray: [[String]] = []
 
+    var selectedChord: String = "A_high"
+
     @IBOutlet weak var chordFigure: UIImageView!
 
     @IBOutlet weak var chordPicker: UIPickerView! {
@@ -60,11 +62,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         chordArray = appDelegate.chordArray
+        chordFigure.image = UIImage(named: selectedChord)
     }
 
 
     @IBAction func addBtnTapped(_ sender: Any) {
-        
+        lacTableView.save()
+
     }
 
 }
@@ -109,17 +113,19 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             // 重要: 左のぴっかーが変えられたら右は0番目にしなくてはならない!!
             chordPicker.selectRow(0, inComponent: 1, animated: false)
             let row1: Int = chordPicker.selectedRow(inComponent: 1)
-            let selectedChord = chordArray[row][row1]
+            selectedChord = chordArray[row][row1]
             let image = UIImage(named: selectedChord)
             chordPicker.reloadComponent(1)
             chordFigure.image = image
+            lacTableView.reloadData()
+
         case 1:
             let row0: Int = chordPicker.selectedRow(inComponent: 0)
-            let selectedChord = chordArray[row0][row]
+            selectedChord = chordArray[row0][row]
             let image = UIImage(named: selectedChord)
             chordFigure.image = image
+            lacTableView.reloadData()
         default:
-
             break
         }
     }
@@ -135,11 +141,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-
         switch indexPath.row % 2 {
             case 0:
                 let cell = tableView.dequeueReusableCell(with: ChordCell.self, for: indexPath) as ChordCell
                 cell.setLayout(70)
+                print(selectedChord)
+                cell.setChord(chord: selectedChord)
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(with: LyricCell.self, for: indexPath) as LyricCell
@@ -153,19 +160,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     // FIXME: 押されたて判定がない.....なぜ....
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-
-        print( "\(indexPath.row)のテーブルがタップされた")
-        let row0: Int = chordPicker.selectedRow(inComponent: 0)
-        let row1: Int = chordPicker.selectedRow(inComponent: 1)
-        let selectedChord = chordArray[row0][row1]
-
-        let cell = tableView.dequeueReusableCell(with: ChordCell.self, for: indexPath) as ChordCell
-        cell.setChord(selectedChord)
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         lacTableView.reloadData()
-
-        return indexPath
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

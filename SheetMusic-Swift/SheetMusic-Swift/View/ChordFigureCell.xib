@@ -12,7 +12,7 @@
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eZ8-WQ-cg9" customClass="ChordFigureCell" customModule="SheetMusic_Swift" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="302" height="326"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YBU-ft-M5o">
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YBU-ft-M5o">
                 <rect key="frame" x="0.0" y="0.0" width="302" height="326"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>

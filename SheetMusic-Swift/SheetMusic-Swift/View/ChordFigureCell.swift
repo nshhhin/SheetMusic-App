@@ -9,6 +9,7 @@ class ChordFigureCell: UICollectionViewCell {
     @IBOutlet weak var chordImageV: UIImageView!
 
     override func awakeFromNib() {
-        chordImageV.image = UIImage(named: "A_high")
+//        chordImageV.image = UIImage(named: "A_high")
     }
+
 }

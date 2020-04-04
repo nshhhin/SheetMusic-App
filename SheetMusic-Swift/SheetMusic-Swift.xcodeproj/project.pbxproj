@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F34BED6224372AA900D8293D /* UIView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34BED6124372AA900D8293D /* UIView+Ex.swift */; };
 		F38B7B7D23D2C0AD00136FDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38B7B7C23D2C0AD00136FDB /* AppDelegate.swift */; };
 		F38B7B7F23D2C0AD00136FDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38B7B7E23D2C0AD00136FDB /* SceneDelegate.swift */; };
 		F38B7B8123D2C0AD00136FDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38B7B8023D2C0AD00136FDB /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F34BED6124372AA900D8293D /* UIView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ex.swift"; sourceTree = "<group>"; };
 		F38B7B7923D2C0AD00136FDB /* SheetMusic-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SheetMusic-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38B7B7C23D2C0AD00136FDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F38B7B7E23D2C0AD00136FDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		F3EEBEA124206F15005CC03F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F34BED6124372AA900D8293D /* UIView+Ex.swift */,
 				F3EEBEA224206F28005CC03F /* UITable+Ex.swift */,
 				F3EEBEA324206F28005CC03F /* UICollection+Ex.swift */,
 				F3EEBE9F24206EE4005CC03F /* NSObject+Ex.swift */,
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F38B7B8123D2C0AD00136FDB /* ViewController.swift in Sources */,
+				F34BED6224372AA900D8293D /* UIView+Ex.swift in Sources */,
 				F3EEBEA424206F28005CC03F /* UITable+Ex.swift in Sources */,
 				F3EEBEA824207559005CC03F /* ChordFigureCell.swift in Sources */,
 				F38B7B7D23D2C0AD00136FDB /* AppDelegate.swift in Sources */,
